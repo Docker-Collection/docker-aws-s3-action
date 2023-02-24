@@ -23,4 +23,5 @@ jobs:
           AWS_S3_ENDPOINT: ${{ secrets.AWS_S3_ENDPOINT }}
           AWS_REGION: "us-west-1"
           SOURCE_DIR: "temp"
+          DEST_DIR: "./"
           AWS_COMMAND: "sync"
