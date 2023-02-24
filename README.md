@@ -2,6 +2,8 @@
 
 Simple action make for my use case!
 
+Example can see [Test.yml](.github/workflows/Test.yml).
+
 > AWS S3 Upload
 
 ```yml
