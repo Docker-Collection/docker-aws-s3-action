@@ -1,4 +1,4 @@
-name: "Testing"
+name: "Testing Action"
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  run_s3:
+  test_s3:
     runs-on: ubuntu-latest
-    name: "Testing S3 Upload"
+    name: "Testing S3"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
