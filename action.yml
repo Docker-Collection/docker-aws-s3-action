@@ -4,7 +4,6 @@ description: "Simple s3 action"
 
 runs:
   using: "docker"
-  # image: "Dockerfile"
   image: "ghcr.io/docker-collection/aws-cli-action:latest"
 
 inputs:
@@ -28,10 +27,10 @@ inputs:
     required: true
   dest_dir:
     description: "dest dir"
-    required: true
+    required: false
   source_dir:
     description: "source dir"
-    required: true
+    required: false
   aws_flags:
     description: "AWS flag"
     required: false
