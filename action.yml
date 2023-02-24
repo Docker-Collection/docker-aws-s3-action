@@ -4,7 +4,7 @@ description: "Simple s3 action"
 
 runs:
   using: "docker"
-  image: "ghcr.io/docker-collection/aws-cli-action:latest"
+  image: "docker://ghcr.io/docker-collection/aws-cli-action:latest"
 
 inputs:
   aws_s3_bucket:
