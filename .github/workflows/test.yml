@@ -1,6 +1,10 @@
 name: "Testing"
 
-on: [push]
+on:
+  push:
+    branches:
+      - "main"
+  workflow_run: {}
 
 jobs:
   run_s3:
