@@ -1,0 +1,7 @@
+name: "Docker AWS S3 Action"
+
+description: "Simple s3 action"
+
+runs:
+  using: "docker"
+  image: "ghcr.io/docker-collection/aws-s3:latest"
