@@ -28,7 +28,7 @@ Example can see [Test.yml](.github/workflows/Test.yml).
     aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
     aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
-    DEST_DIR: "<DIR_OR_FILE>"
+    dest_dir: "<DIR_OR_FILE>"
     aws_command: "cp"
 ```
 
