@@ -64,5 +64,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
-          DEST_DIR: "folder-test"
+          DEST_DIR: "folder-test/"
           aws_command: "rm"
