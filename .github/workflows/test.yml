@@ -1,0 +1,24 @@
+name: "Testing s3"
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - "main"
+
+jobs:
+  upload-single-test:
+    uses: docker-aws-s3-action/.github/workflows/upload-single-test.yml
+    secrets:
+      aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+      aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
+
+  upload-folder-test:
+    uses: docker-aws-s3-action/.github/workflows/upload-folder-test.yml
+    secrets:
+      aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+      aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}

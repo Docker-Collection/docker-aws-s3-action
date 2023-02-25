@@ -1,0 +1,67 @@
+name: "Folder upload test"
+
+on:
+  workflow_call:
+    secrets:
+      aws_s3_bucket:
+        required: true
+      aws_access_key_id:
+        required: true
+      aws_secret_access_key:
+        required: true
+      aws_s3_endpoint:
+        required: true
+
+jobs:
+  s3_test:
+    runs-on: ubuntu-latest
+    name: "Test Folder"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Create testing folder & files
+        run: |
+          mkdir temp
+          echo $(date) > temp/Current_Date.txt
+          echo "Hello World" > temp/Hi.txt
+          echo "Wooo" > temp/A.txt
+
+      - name: AWS S3 Uplaod Test
+        uses: Docker-Collection/docker-aws-s3-action@main
+        with:
+          aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
+          source_dir: "temp"
+          dest_dir: "folder-test/"
+          aws_command: "sync"
+
+      - name: AWS S3 Download Test
+        uses: Docker-Collection/docker-aws-s3-action@main
+        with:
+          aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
+          source_dir: "temp-new"
+          dest_dir: "folder-test/"
+          aws_command: "cp"
+      
+      - name: Cat download file
+        run: |
+          cat temp-new/Current_Date.txt
+          cat temp-new/Hi.txt
+          cat temp-new/A.txt
+          ls -alh temp-new
+
+      - name: AWS S3 Remove Test
+        uses: Docker-Collection/docker-aws-s3-action@main
+        with:
+          aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
+          DEST_DIR: "folder-test/"
+          aws_command: "rm"

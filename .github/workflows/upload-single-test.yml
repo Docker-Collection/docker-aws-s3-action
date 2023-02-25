@@ -1,15 +1,21 @@
-name: "Testing Action"
+name: "Single upload test"
 
 on:
-  push:
-    branches:
-      - "main"
-  workflow_dispatch: {}
+  workflow_call:
+    secrets:
+      aws_s3_bucket:
+        required: true
+      aws_access_key_id:
+        required: true
+      aws_secret_access_key:
+        required: true
+      aws_s3_endpoint:
+        required: true
 
 jobs:
-  test_s3:
+  s3_test:
     runs-on: ubuntu-latest
-    name: "Testing S3"
+    name: "Test Single"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,11 +42,13 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
-          DEST_DIR: "Test.txt"
+          dest_dir: "Test.txt"
           aws_command: "cp"
       
       - name: Cat download file
-        run: cat Test.txt
+        run: |
+          cat Test.txt
+          ls -alh
 
       - name: AWS S3 Remove Test
         uses: Docker-Collection/docker-aws-s3-action@main
