@@ -6,8 +6,8 @@ Image source can found on [Docker-Collection/docker-aws-cli](https://github.com/
 
 Some example can see:
 
-- [upload-single-test.yml](https://github.dev/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-single-test.yml)
-- [upload-folder-test.yml](https://github.dev/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-folder-test.yml)
+- [upload-single-test.yml](https://github.com/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-single-test.yml)
+- [upload-folder-test.yml](https://github.com/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-folder-test.yml)
 
 Please notice, you still need to specify a folder to upload, because ``sync`` only can sync folder.
 
