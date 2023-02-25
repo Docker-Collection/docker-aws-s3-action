@@ -66,3 +66,4 @@ jobs:
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
           DEST_DIR: "folder-test/"
           aws_command: "rm"
+          aws_flags: "--recursive"
