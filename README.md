@@ -2,7 +2,16 @@
 
 Simple action make for my use case!
 
-Example can see [Test.yml](.github/workflows/Test.yml).
+Image source can found on [Docker-Collection/docker-aws-cli](https://github.com/Docker-Collection/docker-aws-cli).
+
+Some example can see:
+
+- [upload-single-test.yml](https://github.dev/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-single-test.yml)
+- [upload-folder-test.yml](https://github.dev/Docker-Collection/docker-aws-s3-action/blob/main/.github/workflows/upload-folder-test.yml)
+
+Please notice, you still need to specify a folder to upload, because ``sync`` only can sync folder.
+
+Maybe some day I will fix this, to using ``cp`` to uplaod single file.
 
 > AWS S3 Upload
 
@@ -41,7 +50,7 @@ Example can see [Test.yml](.github/workflows/Test.yml).
 | aws_secret_access_key | Required | N/A | AWS Secret Access key |
 | aws_region | Optional | us-east-1 | AWS Region |
 | aws_s3_endpoint | Optional | N/A | Custom AWS Endpoint |
-| aws_command | Required | N/A | What you want to run, aviable command is ``sync`` ``cp`` ``ls`` |
+| aws_command | Required | N/A | What you want to run, aviable command is ``sync`` ``cp`` ``ls`` ``rm`` |
 | dest_dir | Optional | N/A | Destination path |
 | source_dir | Optional | N/A | Source path |
 | aws_flags | Optional | N/A | The flag you want to run |
