@@ -35,7 +35,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
           source_dir: "temp"
-          dest_dir: "folder-test/"
+          dest_dir: "folder-test"
           aws_command: "sync"
 
       - name: AWS S3 Download Test
@@ -46,7 +46,7 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
           source_dir: "temp-new"
-          dest_dir: "folder-test/"
+          dest_dir: "folder-test"
           aws_command: "cp"
       
       - name: Cat download file
