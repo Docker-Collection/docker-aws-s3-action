@@ -45,6 +45,7 @@ Example can see [Test.yml](.github/workflows/Test.yml).
 | dest_dir | Optional | N/A | Destination path |
 | source_dir | Optional | N/A | Source path |
 | aws_flags | Optional | N/A | The flag you want to run |
+| sync_reverse | Optional | false | Reverse sync, use to download s3 folder to local |
 
 ## Reference
 

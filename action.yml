@@ -34,3 +34,6 @@ inputs:
   aws_flags:
     description: "AWS flag"
     required: false
+  sync_reverse:
+    description: "Reverse Sync"
+    required: false
