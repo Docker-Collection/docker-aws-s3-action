@@ -21,7 +21,7 @@ Example can see [Test.yml](.github/workflows/Test.yml).
 > AWS S3 Download
 
 ```yml
-- name: AWS S3 Download Test
+- name: AWS S3 Download
   uses: Docker-Collection/docker-aws-s3-action@main
   with:
     aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
