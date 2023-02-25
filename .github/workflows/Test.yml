@@ -16,7 +16,8 @@ jobs:
 
       - name: Create testing folder & file
         run: |
-          echo $(date) > Test.txt
+          mkdir temp
+          echo $(date) > temp/Test.txt
 
       - name: AWS S3 Uplaod Test
         uses: Docker-Collection/docker-aws-s3-action@main
@@ -25,7 +26,7 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
-          source_dir: "Test.txt"
+          source_dir: "temp"
           aws_command: "sync"
 
       - name: AWS S3 Download Test
@@ -40,3 +41,13 @@ jobs:
       
       - name: Cat download file
         run: cat Test.txt
+
+      - name: AWS S3 Remove Test
+        uses: Docker-Collection/docker-aws-s3-action@main
+        with:
+          aws_s3_bucket: ${{ secrets.AWS_S3_BUCKET }}
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_s3_endpoint: ${{ secrets.AWS_S3_ENDPOINT }}
+          DEST_DIR: "Test.txt"
+          aws_command: "rm"
